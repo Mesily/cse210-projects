@@ -1,14 +1,18 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
 
 class ListingActivity : Activity
 {
-    private string[] _prompts =
+    private List<string> _prompts = new List<string>
     {
         "Who are people that you appreciate?",
         "What are personal strengths of yours?",
         "Who are people that you have helped this week?",
-        "When have you felt the Holy Ghost this month?"
+        "When have you felt the Holy Ghost this month?",
+        "What are some of your personal accomplishments?",
+        "What did you feel truly happy for?",
+
     };
 
     public ListingActivity()
@@ -23,7 +27,11 @@ class ListingActivity : Activity
         DisplayStartingMessage();
 
         Random random = new Random();
-        string prompt = _prompts[random.Next(_prompts.Length)];
+
+        // Select a prompt randomly and remove it so it cannot be repeated.
+        int promptIndex = random.Next(_prompts.Count);
+        string prompt = _prompts[promptIndex];
+        _prompts.RemoveAt(promptIndex);
 
         Console.WriteLine();
         Console.WriteLine("List as many responses as you can to the following prompt:");
@@ -45,6 +53,7 @@ class ListingActivity : Activity
             count++;
         }
 
+        Console.WriteLine();
         Console.WriteLine($"You listed {count} items.");
 
         DisplayEndingMessage();

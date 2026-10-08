@@ -4,11 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
+        // Test the Assignment class
         Assignment assignment = new Assignment("Samuel Bennett", "Multiplication");
         Console.WriteLine(assignment.GetSummary());
 
         Console.WriteLine();
 
+        // Test the MathAssignment class
         MathAssignment mathAssignment = new MathAssignment(
             "Roberto Rodriguez",
             "Fractions",
@@ -18,8 +20,10 @@ class Program
 
         Console.WriteLine(mathAssignment.GetSummary());
         Console.WriteLine(mathAssignment.GetHomeworkList());
+
         Console.WriteLine();
 
+        // Test the WritingAssignment class
         WritingAssignment writingAssignment = new WritingAssignment(
             "Mary Waters",
             "European History",
