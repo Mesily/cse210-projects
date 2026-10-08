@@ -18,12 +18,13 @@ class BreathingActivity : Activity
 
         while (DateTime.Now < endTime)
         {
-            Console.WriteLine("Breathe in...");
-            ShowBreathingAnimation(5);
+            Console.Write("Breathe in... ");
+            ShowCountDown(5);
 
             Console.WriteLine();
-            Console.WriteLine("Breathe out...");
-            ShowBreathingAnimation(5);
+
+            Console.Write("Breathe out... ");
+            ShowCountDown(5);
 
             Console.WriteLine();
         }
@@ -31,17 +32,13 @@ class BreathingActivity : Activity
         DisplayEndingMessage();
     }
 
-    private void ShowBreathingAnimation(int seconds)
+    private void ShowCountDown(int seconds)
     {
-        DateTime endTime = DateTime.Now.AddSeconds(seconds);
-
-        while (DateTime.Now < endTime)
+        for (int i = seconds; i > 0; i--)
         {
-            Console.Write(".");
-            Thread.Sleep(500);
+            Console.Write(i);
+            Thread.Sleep(1000);
             Console.Write("\b \b");
-
-            Thread.Sleep(500);
         }
     }
 }
