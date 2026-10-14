@@ -1,0 +1,2 @@
+100
+SimpleGoal|study|study the scripture daily|100|True
